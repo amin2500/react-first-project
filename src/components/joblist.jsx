@@ -1,6 +1,14 @@
-
+import { useState } from "react"
 
 const Joblist = ({job}) => {
+
+    const [ShowFullDescription, setShowFullDescription] = useState(false)
+    let description = job.description
+
+    if(!ShowFullDescription){
+        description = description.substring(0,140) + '...';
+    }
+
   return (
     <div className="bg-white rounded-xl shadow-md relative">
                <div className="p-4">
@@ -10,7 +18,7 @@ const Joblist = ({job}) => {
                  </div>
    
                  <div className="mb-5">
-                 {job.description}
+                 {description}
                  </div>
    
                  <h3 className="text-indigo-500 mb-2">{job.salary} / Year</h3>
